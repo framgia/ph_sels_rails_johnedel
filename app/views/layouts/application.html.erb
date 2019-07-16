@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head>
-   <title><%= full_title(yield(:title)) %></title>
-    <%= render 'layouts/rails_default'%>
-  </head>
-
-  <body>
-    <%= render 'layouts/header' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
-  </body>
-
+    <head>
+        <title><%= full_title(yield(:title)) %></title>
+        <%= render 'layouts/rails_default'%>
+    </head>
+    <body>
+        <%= render 'layouts/header' %>
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+    </body>
 </html>
