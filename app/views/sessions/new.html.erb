@@ -1,0 +1,25 @@
+<% provide(:title, 'Login') %>
+<div class="container"><br>
+    <div class="card">
+        <div class="card-action red lighten-2 white-text">
+            <h6>Login</h6>
+        </div>
+
+        <div class="form-padding">
+            <%= form_for(:session, url: login_path) do |f| %>
+            <div class="form-field">
+                <%= f.label :email %>
+                <%= f.text_field :email%>
+            </div>
+            <div class="form-field">
+                <%= f.label :password %>
+                <%= f.password_field :password %>
+            </div>
+            <div class="form-field">
+                <%= f.submit "Log in", class: "btn btn-primary" %>
+            </div>
+            <% end %>
+            <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+        </div>
+    </div>
+</div>
