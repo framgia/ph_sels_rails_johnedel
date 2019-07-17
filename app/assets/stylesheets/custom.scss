@@ -8,3 +8,15 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+#error_explanation {
+  ul {
+    color: #fff;
+    margin: 0 0 30px 0;
+  }
+}
+
+.card .form-padding {
+  padding: 20px;
+}
+
