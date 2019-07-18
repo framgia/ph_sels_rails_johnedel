@@ -5,10 +5,7 @@
         <%= will_paginate %>
         <ul class="collection">
             <% @users.each do |user| %>
-            <li class="collection-item avatar">
-                <i class="material-icons box green"> <%= gravatar_for user, size: 50 %></i>
-                <span class="title"><%= link_to user.name, user %></span>
-            </li>
+                <%= render @users %>
             <% end %>
         </ul>
         <%= will_paginate %>
