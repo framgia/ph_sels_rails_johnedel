@@ -1,11 +1,37 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-    <aside class="col-md-4">
-        <section class="user_info">
-            <h1>
-                <%= gravatar_for @user %>
-                <%= @user.name %>
-            </h1>
-        </section>
-    </aside>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col s4">
+            <div class="card">
+                <div class="card-action red lighten-2 white-text">
+                    <h6>User Information</h6>
+                </div>
+                <center>
+                <div class="card-image">
+                    <%= gravatar_for @user %>
+                </div>
+                </center>
+                <div class="card-content">
+                    <h3><%= @user.name %></h3>
+                    <h4><%= @user.email %></h4>
+                </div>   
+            </div>
+            <div class="card">
+                <div class="card-action red lighten-2 white-text">
+                    <h6>User Status</h6>
+                </div>
+                <div class="card-content"> 
+                    <h4>Word Learned: 0</h4>
+                    <div class = "status">
+                      <%= render 'shared/stats' %> <br> <br>
+                      <%= render 'follow_form' if logged_in? %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s8">
+            <div class="card-panel red lighten-2 white-text">Activity Feeds</div>
+        </div>
+    </div>
 </div>
