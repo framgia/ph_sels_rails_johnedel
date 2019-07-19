@@ -27,19 +27,21 @@ main {
   width: 30%;
 }
 
-.card-content h3 {
-  font-size: 25px;
-  margin-bottom: 0;
-  color: #303F9F;
+.card-content {
+
   font-family: 'Montserrat', sans-serif;
+
+  h3 {
+    font-size: 25px;
+    margin-bottom: 0;
+    color: #303F9F;  
   }
-  
-.card-content h4 {
-  font-size: 14px;
-  margin-top: 0;
-  color: #FF5252;
-  font-family: 'Montserrat', sans-serif;
+  h4 {
+    font-size: 14px;
+    margin-top: 0;
+    color: #FF5252;
   }
+}
 
 .userfollow {
     margin-left: 10px;
