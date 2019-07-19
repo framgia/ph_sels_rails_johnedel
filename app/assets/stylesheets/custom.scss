@@ -1,12 +1,12 @@
 @import "materialize";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "materialize/extras/nouislider";
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans);
 
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+  background-color: antiquewhite;
 }
+
 main {
   flex: 1 0 auto;
 }
@@ -22,6 +22,29 @@ main {
   padding: 20px;
 }
 
+.card .card-image img {
+  position: center;
+  width: 30%;
+}
+
+.card-content h3 {
+  font-size: 25px;
+  margin-bottom: 0;
+  color: #303F9F;
+  font-family: 'Montserrat', sans-serif;
+  }
+  
+.card-content h4 {
+  font-size: 14px;
+  margin-top: 0;
+  color: #FF5252;
+  font-family: 'Montserrat', sans-serif;
+  }
+
+.userfollow {
+    margin-left: 10px;
+}
+  
 .gravatar_edit {
   margin-top: 10px
 }
@@ -29,4 +52,5 @@ main {
 .pagination li.active a {
   color: #fff;
 }
+
 
