@@ -26,3 +26,18 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+users = User.all
+user1  = users.find_by(id: 2)
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user1.follow(followed) }
+followers.each { |follower| follower.follow(user1) }
+
+49.times do |n|
+  title  = Faker::Book.title
+  des = "Lorem Ipsum"
+
+  Category.create!(title:  title,
+                  description: des)
+end
