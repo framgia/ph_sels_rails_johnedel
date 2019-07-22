@@ -1,35 +1,35 @@
 <%= form_for(@user) do |f| %>
-<%= render 'shared/error_messages', object: @user %>
-<div class="form-field">
-    <%= f.label :name %>
-    <%= f.text_field :name%>
-</div>
-<div class="form-field">
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-</div>
-<div class="form-field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-</div>
-<div class="form-field">
-    <%= f.label :password_confirmation, "Confirmation" %>
-    <%= f.password_field :password_confirmation %>
-</div>
+    <%= render 'shared/error_messages', object: @user %>
+    <div class="form-field">
+        <%= f.label :name %>
+        <%= f.text_field :name%>
+    </div>
+    <div class="form-field">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+    </div>
+    <div class="form-field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+    </div>
+    <div class="form-field">
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation %>
+    </div>
 
-<% begin %>
-    <% if current_user.admin? %>
-        <div class="form-field">
-            <%= f.label :admin, class: "checkbox inline" do %>
-                <%= f.check_box :admin %>
-                <span>Enable as admin</span>
-            <% end %>
-        </div>
+    <% begin %>
+        <% if current_user.admin? %>
+            <div class="form-field">
+                <%= f.label :admin, class: "checkbox inline" do %>
+                    <%= f.check_box :admin %>
+                    <span>Enable as admin</span>
+                <% end %>
+            </div>
+        <% end %>
+    <% rescue %>
     <% end %>
-<% rescue %>
-<% end %>
-<br> 
-<div class="form-field">
-    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
-</div>
+    <br> 
+    <div class="form-field">
+        <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    </div>
 <% end %>
