@@ -36,7 +36,7 @@ followers.each { |follower| follower.follow(user1) }
 
 49.times do |n|
   title  = Faker::Book.title
-  des = "Lorem Ipsum"
+  des = "Lorem Ipsums"
 
   Category.create!(title:  title,
                   description: des)
