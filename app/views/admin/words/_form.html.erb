@@ -1,7 +1,7 @@
 <%= form_for([:admin, @category, @word]) do |f| %>
     <%= render 'shared/error_messages', object: @word %>
     <div class="form-field">
-        <%= f.label :cotent %>
+        <%= f.label :content, "Word" %>
         <%= f.text_field :content %>
     </div>
     <div class="form-field">

@@ -17,9 +17,9 @@
             <tbody>
                 <% @categories.each do |category| %>
                 <tr>
-                    <td><%=  category.title %></td>
-                    <td><%=  category.description %></td>
-                    <td>0</td>
+                    <td><%= category.title %></td>
+                    <td><%= category.description %></td>
+                    <td><%= category.words.count %></td>
                     <td>
                     
                     <%= link_to "Add Word", admin_category_words_path(category), 

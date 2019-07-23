@@ -14,12 +14,12 @@ module Admin
 
     def new
       @category = Category.find(params[:category_id])
-      @word = Word.new
+      @word = @category.words.build
     end
   
     def create
       @category = Category.find(params[:category_id])
-      @word = @category.words.create(word_params)
+      @word = @category.words.build(word_params)
       if @word.save
         flash[:success] = "Word successfully created!"
         redirect_to admin_category_words_url
