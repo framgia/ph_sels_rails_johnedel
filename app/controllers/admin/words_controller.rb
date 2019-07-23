@@ -15,6 +15,7 @@ module Admin
     def new
       @category = Category.find(params[:category_id])
       @word = @category.words.build
+      3.times { @word.choices.build }
     end
   
     def create
@@ -52,7 +53,7 @@ module Admin
     
     private
     def word_params
-      params.require(:word).permit(:content)
+      params.require(:word).permit(:content, choices_attributes: [:id, :content, :correct])
     end
   end
 end
