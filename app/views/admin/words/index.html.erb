@@ -1,0 +1,35 @@
+<% provide(:title, "All Words")%>
+<div class=container>
+    <div class=row>
+        <h3><%= @category.title %></h3>
+        <h5><%= @category.description %></h5>
+        <%= link_to "Back", admin_categories_path , class: 'btn green lighten-1' %>
+        <%= link_to "Add Word", new_admin_category_word_path , class: 'btn btn-primary' %>
+        <%= will_paginate %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Word</th>
+                    <th>Answer</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @words.each do |word| %>
+                <tr>
+                    <td><%= word.content %></td>
+                    <td> Not Working for now </td>
+                    <td>
+                    <%= link_to "Edit", edit_admin_category_word_path(@category, word), 
+                    class: 'btn blue lighten-1' %> 
+                    <%= link_to "Delete", [:admin, @category, word], method: :delete, 
+                    data: {confirm: "Are you sure you want to delete this category?"},
+                    class: 'btn red darken-1' %>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <%= will_paginate %>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<% provide(:title, 'Edit Word') %>
+<% provide(:button_text, 'Edit Word') %>
+<div class="container"><br>
+    <div class="card">
+        <div class="card-action red lighten-2 white-text">
+            <h6>Admin | <%= @category.title %> - Words</h6>
+        </div>
+        <div class="form-padding">  
+            <%= link_to "Back", admin_category_words_path , class: 'btn green lighten-1' %> <br><br>
+            <%= render 'form' %>
+        </div>
+    </div>
+</div>

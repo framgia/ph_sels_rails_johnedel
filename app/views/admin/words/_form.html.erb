@@ -1,0 +1,13 @@
+<%= form_for([:admin, @category, @word]) do |f| %>
+    <%= render 'shared/error_messages', object: @word %>
+    <div class="form-field">
+        <%= f.label :content, "Word" %>
+        <%= f.text_field :content %>
+    </div>
+    <div class="form-field">
+    </div>
+    <br>
+    <div class="form-field">
+        <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    </div>
+<% end %>

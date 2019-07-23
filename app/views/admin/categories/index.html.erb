@@ -17,10 +17,14 @@
             <tbody>
                 <% @categories.each do |category| %>
                 <tr>
-                    <td><%=  category.title %></td>
-                    <td><%=  category.description %></td>
-                    <td>0</td>
+                    <td><%= category.title %></td>
+                    <td><%= category.description %></td>
+                    <td><%= category.words.count %></td>
                     <td>
+                    
+                    <%= link_to "Add Word", admin_category_words_path(category), 
+                    class: 'btn blue lighten-1' %> 
+
                     <%= link_to "Edit", edit_admin_category_path(category), 
                     class: 'btn blue lighten-1' %> 
                     <%= link_to "Delete", [:admin, category], method: :delete, 
