@@ -34,18 +34,3 @@ followers = users[3..40]
 following.each { |followed| user1.follow(followed) }
 followers.each { |follower| follower.follow(user1) }
 
-49.times do |n|
-  title  = Faker::Book.title
-  des = "Lorem Ipsums"
-
-  Category.create!(title:  title,
-                  description: des)
-end
-
-2.times do |n|
-  word  =  Faker::Book.title
-  id = 1
-
-  Word.create!(content:  word,
-                  category_id: id)
-end
