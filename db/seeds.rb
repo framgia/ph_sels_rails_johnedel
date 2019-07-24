@@ -42,10 +42,3 @@ followers.each { |follower| follower.follow(user1) }
                   description: des)
 end
 
-2.times do |n|
-  word  =  Faker::Book.title
-  id = 1
-
-  Word.create!(content:  word,
-                  category_id: id)
-end
