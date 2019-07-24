@@ -6,7 +6,7 @@ class Word < ApplicationRecord
   default_scope -> { order(created_at: :desc) } 
   
   def correct_ans
-    choices.find_by(correct: true).content
+    choices.find_by(correct: true)
   end
    
 end
