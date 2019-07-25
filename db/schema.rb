@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_07_23_034257) do
   create_table "choices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "word_id"
     t.string "content"
-    t.string "correct", default: "0"
+    t.boolean "correct", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["word_id"], name: "index_choices_on_word_id"
