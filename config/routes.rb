@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+
   resources :relationships, only: [:create, :destroy]
 
   namespace :admin do
@@ -20,4 +21,10 @@ Rails.application.routes.draw do
       resources :words 
     end
   end
+
+  resources :categories, only: [:index] do
+    resources :lessons, only: [:new, :create, :show]
+  end
+
+  
 end

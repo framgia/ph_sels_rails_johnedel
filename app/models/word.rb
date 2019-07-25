@@ -7,6 +7,7 @@ class Word < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   validate :one_choice_only
   validate :must_unique
+  has_many :answers, dependent: :destroy
  
   def correct_ans
     choices.find_by(correct: true).try(:content)
