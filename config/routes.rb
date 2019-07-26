@@ -15,16 +15,15 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: [:create, :destroy]
-
   namespace :admin do
     resources :categories do
       resources :words 
     end
   end
 
-  resources :categories, only: [:index] do
-    resources :lessons, only: [:new, :create, :show]
+  resources :lessons do
+    resources :answers
   end
 
-  
+  resources :categories, only: [:index]
 end

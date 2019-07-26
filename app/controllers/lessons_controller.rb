@@ -9,18 +9,11 @@ class LessonsController < ApplicationController
 
   def create
     @category = Category.find(params[:category_id])
-    @lesson = @category.lessons.build(lesson_params)
+    @lesson = @category.lessons.build(user: current_user)
       if @lesson.save
-        flash[:success] = "Lesson Created"
-        redirect_to new_category_lesson_url(@category)
+        redirect_to new_lesson_answer_url(@lesson)
       else 
         render 'new'
       end
   end 
-
-  private
-  def lesson_params
-    params.require(:lesson).permit(:user_id, :category_id)
-  end
-
 end

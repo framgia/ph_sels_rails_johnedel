@@ -22,11 +22,7 @@
                                         </p>
                                     </div>
                                     <div class="card-action">
-                                        <%= form_for([category, @lesson]) do |f| %>
-                                            <%= f.hidden_field :user_id, :value => current_user.id %>
-                                            <%= f.hidden_field :category_id, :value => category.id %>
-                                            <%= f.submit "Start Lesson", class: "btn btn-info btn-block btn-lg", id:"submit" %>
-                                        <% end %>
+                                        <%= link_to "Start Lesson", lessons_path(category_id: category.id), method: :post, class: 'btn btn-primary' %>
                                     </div>
                                 </div>
                             </div>
