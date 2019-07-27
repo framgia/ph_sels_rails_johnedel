@@ -19,8 +19,7 @@ class AnswersController < ApplicationController
 
   def create
     @lesson = Lesson.find(params[:lesson_id])
-    @answer = @lesson.answers.build(answer_params)
-    @answer.save
+    @answer = @lesson.answers.create(answer_params)
     redirect_to new_lesson_answer_url(@lesson)
   end
 
