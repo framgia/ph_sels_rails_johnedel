@@ -19,17 +19,16 @@
 
             <tbody>
                 <% @lesson.answers.each do |answer| %>                
-                <tr>
-                    <td><%= answer.word.content %></td>
-                    <td><%= answer.choice.content %></td>
-                    <td><%= answer.word.correct_ans %></td>
-
-                    <% if answer.choice.content == answer.word.correct_ans %>
-                        <td> <i class="small material-icons">check</i> </td> 
-                    <% else %>
-                        <td> <i class="small material-icons">close</i> </td>
-                    <% end %>
-                </tr>
+                    <tr>
+                        <td><%= answer.word.content %></td>
+                        <td><%= answer.choice.content %></td>
+                        <td><%= answer.word.correct_ans %></td>
+                        <% if answer.choice.content == answer.word.correct_ans %>
+                            <td> <i class="small material-icons">check</i> </td> 
+                        <% else %>
+                            <td> <i class="small material-icons">close</i> </td>
+                        <% end %>
+                    </tr>
                 <% end %>
             </tbody>
         </table>
