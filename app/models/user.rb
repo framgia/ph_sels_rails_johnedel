@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   has_many :lessons, dependent: :destroy
   has_many :categories, through: :lessons
+  has_many :answers, through: :lessons
 
   before_save :downcase_email
   validates :name,  presence: true, length: { maximum: 50 }
@@ -32,6 +33,10 @@ class User < ApplicationRecord
 
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def lesson_taken(category_id)
+    lesson = lessons.find_by(category_id:category_id)
   end
 
   private
