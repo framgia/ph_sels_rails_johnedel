@@ -8,6 +8,7 @@ class Word < ApplicationRecord
   validate :one_choice_only
   validate :must_unique
   has_many :answers, dependent: :destroy
+  has_many :lessons, through: :answers  
  
   def correct_ans
     choices.find_by(correct: true).try(:content)
