@@ -15,6 +15,8 @@ class AnswersController < ApplicationController
     end
 
     if @word.nil?
+      score = @lesson.answers.collect {|answer| answer.choice.correct}.count(true)
+      @lesson.update_attribute(:score, score)
       redirect_to @lesson
     end
   end

@@ -13,8 +13,10 @@
                 </div>
                 <div class="card-action">
                     <% @word.choices.each do |choice| %>
-                        <center><%= f.label :choice_id, choice.content, value: choice.id, class: 'btn btn-primary' %></center> <br>
-                        <%= f.radio_button :choice_id, choice.id, onchange: 'this.form.submit();' %>
+                        <div class = "button-size">
+                            <center><%= f.label :choice_id, choice.content, value: choice.id, class: "btn" %></center> <br>
+                            <%= f.radio_button :choice_id, choice.id, onchange: 'this.form.submit();' %>
+                        </div>
                     <% end %>
                 </div>
             </div>

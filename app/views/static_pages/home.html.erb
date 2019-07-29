@@ -5,33 +5,36 @@
     <div class="row">
         <div class="col s4">
             <div class="card">
-                <div class="card-action red lighten-2 white-text">
+                <div class="card-action light-blue darken-2 white-text">
                     <h6>User Information</h6>
                 </div>
                 <center>
                 <div class="card-image">
                     <%= render 'shared/user_info' %>
                 </div>
-                </center>
                 <div class="card-content">
                     <h3><%= current_user.name %></h3>
                     <h4><%= current_user.email %></h4>
                 </div>        
+                </center>
             </div>
             <div class="card">
-                <div class="card-action red lighten-2 white-text">
+                <div class="card-action light-blue darken-2 white-text">
                     <h6>User Status</h6>
                 </div>
                 <div class="card-content"> 
-                    <h4>Word Learned: 0</h4>
-                    <div class = "status">
-                      <%= render 'shared/stats' %>
-                    </div>
+                    <center>
+                        <% total = current_user.categories.collect {|category| category.words.count}.sum %>  
+                        <h4><%= link_to "Words Learned: #{total}", words_path %></h4>
+                        <div class = "status">
+                            <%= render 'shared/stats' %>
+                        </div>
+                    </center>
                 </div>
             </div>
         </div>
         <div class="col s8">
-            <div class="card-panel red lighten-2 white-text">Activity Feeds</div>
+            <div class="card-panel light-blue darken-2 white-text">Activity Feeds</div>
         </div>
     </div>
 </div>
