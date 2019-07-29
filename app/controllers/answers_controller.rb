@@ -5,9 +5,11 @@ class AnswersController < ApplicationController
   def new
     @lesson = Lesson.find(params[:lesson_id])
     @answer = Answer.new
+    word_length = @lesson.answers.length
     @lesson.category.words.each do |word|
       unless @lesson.answers.where(word_id: word.id).exists?
         @word = word 
+        @progress = word_length + 1
         break
       end
     end
