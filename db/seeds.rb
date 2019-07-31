@@ -29,8 +29,8 @@ followers.each { |follower| follower.follow(user) }
 
 users = User.all
 user1  = users.find_by(id: 2)
-following = users[2..50]
-followers = users[3..40]
+following = users[2..10]
+followers = users[3..15]
 following.each { |followed| user1.follow(followed) }
 followers.each { |follower| follower.follow(user1) }
 

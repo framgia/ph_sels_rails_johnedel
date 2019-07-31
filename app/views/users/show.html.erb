@@ -10,12 +10,12 @@
                 <center>
                 <div class="card-image">
                     <%= gravatar_for @user %>
-                </div>
-                </center>
+                </div> 
                 <div class="card-content">
                     <h3><%= @user.name %></h3>
                     <h4><%= @user.email %></h4>
-                </div>   
+                </div>  
+                </center> 
             </div>
             <div class="card">
                 <div class="card-action light-blue darken-2 white-text">
@@ -23,7 +23,8 @@
                 </div>
                 <div class="card-content">
                     <center> 
-                        <h4> Word Learned: 0</h4>
+                        <% total = @user.categories.collect {|category| category.words.count}.sum %>  
+                        <h4><%= "Words Learned: #{total}"%></h4>
                         <div class = "status">
                         <%= render 'shared/stats' %> <br> <br>
                         <%= render 'follow_form' if logged_in? %>
@@ -32,8 +33,16 @@
                 </div>
             </div>
         </div>
-        <div class="col s8">
-            <div class="card-panel light-blue darken-2 white-text">Activity Feeds</div>
+          <div class="col s8">
+            <div class="card">
+                <div class="card-action light-blue darken-2 white-text"> 
+                    <h6>Activity Feed</h6> 
+                </div>
+                <ul class="collection">
+                    <%= render 'activity/feed' if logged_in?%>
+                </ul>
+                 <%= will_paginate @activities %>
+            </div>
         </div>
     </div>
 </div>
