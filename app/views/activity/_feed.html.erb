@@ -1,0 +1,36 @@
+<% unless @activities.blank? %>
+    <% @activities.each do |activity| %>
+        <% if activity.action.instance_of?(Relationship) %>
+            <li class="collection-item avatar">
+                <% if current_user.name == activity.user.name %>
+                    <%= gravatar_feed @user %> 
+                    <h6><b><%= link_to "You", @user %></b> followed <%= link_to activity.action.followed.name, activity.action.followed %></h6>
+                    <p><%= time_ago_in_words(activity.action.created_at)%> ago.</p>
+                <% else %>
+                    <%= gravatar_feed activity.user %>
+                    <h6><b><%= link_to activity.user.name, activity.user %></b> followed <%= link_to activity.action.followed.name, activity.action.followed %>
+                    </h6>
+                    <p><%= time_ago_in_words(activity.action.created_at)%> ago.</p>
+                <% end %>
+            </li>
+        <% elsif activity.action.instance_of?(Lesson) %>
+            <li class="collection-item avatar">
+                <% if current_user.name == activity.user.name %>
+                    <%= gravatar_feed @user %>
+                    <h6><b><%= link_to "You", @user %></b> <%="learned #{activity.action.score} of #{activity.action.words.count } in " %>
+                    <%= link_to activity.action.category.title, activity.action %></h6>
+                    <p><%= time_ago_in_words(activity.action.created_at)%> ago.</p>
+                <% else %>
+                    <%= gravatar_feed activity.user %>
+                    <h6><b><%= link_to activity.user.name, activity.user %></b> <%="learned #{activity.action.score} of #{activity.action.words.count } in " %>
+                    <%= link_to activity.action.category.title, activity.action %></h6>
+                    <p><%= time_ago_in_words(activity.action.created_at)%> ago.</p>
+                <% end %>
+            <li>
+        <% end %>
+    <% end %>
+<% else %>
+    <li class="collection-item">
+        <h6> No activities. </h6>
+    </li>
+<% end %>

@@ -17,6 +17,7 @@ class AnswersController < ApplicationController
     if @word.nil?
       score = @lesson.answers.collect {|answer| answer.choice.correct}.count(true)
       @lesson.update_attribute(:score, score)
+      @lesson.create_activity(user: current_user)
       redirect_to @lesson
     end
   end

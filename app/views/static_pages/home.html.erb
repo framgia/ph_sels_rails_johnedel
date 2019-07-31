@@ -24,7 +24,7 @@
                 </div>
                 <div class="card-content"> 
                     <center>
-                        <% total = current_user.categories.collect {|category| category.words.count}.sum %>  
+                        <% total = current_user.categories.collect {|category| category.words.count}.sum %> 
                         <h4><%= link_to "Words Learned: #{total}", words_path %></h4>
                         <div class = "status">
                             <%= render 'shared/stats' %>
@@ -34,7 +34,13 @@
             </div>
         </div>
         <div class="col s8">
-            <div class="card-panel light-blue darken-2 white-text">Activity Feeds</div>
+            <div class="card">
+                <div class="card-action light-blue darken-2 white-text"><h6> Activity Feed </h6></div>
+                <ul class="collection">
+                    <%= render 'activity/feed'%>
+                </ul>
+                <%= will_paginate @activities %>
+            </div>
         </div>
     </div>
 </div>
