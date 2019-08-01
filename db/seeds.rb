@@ -56,7 +56,7 @@ end
       Choice.new(content: Faker::Music.instrument, correct: false),
       Choice.new(content: Faker::Music.chord, correct: false)
     ].shuffle
-    word.save!
+    word.save(validate: false)
   end
 end
 
