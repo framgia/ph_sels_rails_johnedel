@@ -1,42 +1,50 @@
-<% provide(:title, "All Users")%>
-<div class=container>
-    <div class=row>
-        <h1> All Users </h1>
-        <%= will_paginate %>
-        <table>
-            <thead>
-                <tr>
-                    <th>Profile Picture</th>
-                    <th>Name</th>
-                    <% if current_user.admin? %>
-                        <th>Action</th>
-                    <% else %>
-                        <th>Profile</th>
-                    <% end %>
-                </tr>
-            </thead>
-
-            <tbody>
-                <% @users.each do |user| %>
-                <tr>
-                    <td><%= gravatar_for user, size: 50 %></td>
-                    <td><%=  user.name %></td>
-                    <td>
-                    <% if current_user.admin? %>
-                        <%= link_to "Visit Profile", user, class: "btn btn-primary" %>
-                        <%= link_to "Edit", edit_user_path(user), 
-                        class: 'btn blue lighten-1' %> 
-                        <%= link_to "Delete", user, method: :delete, 
-                        data: {confirm: "Are you sure you want to delete this user?"},
-                        class: 'btn red darken-1' %>
-                    <% else %>
-                        <%= link_to "Visit Profile", user, class: "btn btn-primary" %>
-                    <% end %>
-                    </td>
-                </tr>
-                <% end %>
-            </tbody>
-        </table>
-        <%= will_paginate %>
+<% provide(:title, "Members") %>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-action light-blue darken-2 white-text">
+                    <h6>All Members</h6>
+                </div> <br>
+                <%= will_paginate %>
+                <center>
+                <table> 
+                    <thead>
+                        <tr>
+                            <th>Profile Picture</th>
+                            <th>Name</th>
+                            <% if current_user.admin? %>
+                                <th>Action</th>
+                            <% else %>
+                                <th>Profile</th>
+                            <% end %>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @users.each do |user| %>
+                        <tr>
+                            <td><%= gravatar_for user, size: 50 %></td>
+                            <td><%=  user.name %></td>
+                            <td>
+                            <% if current_user.admin? %>
+                                <%= link_to "Visit Profile", user, class: "btn btn-primary" %>
+                                <%= link_to "Edit", edit_user_path(user), 
+                                class: 'btn blue lighten-1' %> 
+                                <%= link_to "Delete", user, method: :delete, 
+                                data: {confirm: "Are you sure you want to delete this user?"},
+                                class: 'btn red darken-1' %>
+                            <% else %>
+                                <%= link_to "Visit Profile", user, class: "btn btn-primary" %>
+                            <% end %>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+                </center>
+                <%= will_paginate %>
+            </div>
+        </div>
     </div>
 </div>

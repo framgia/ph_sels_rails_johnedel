@@ -23,12 +23,14 @@ main {
 }
 
 .card .card-image img {
+  margin-top: 20px;
   position: center;
-  width: 30%;
+  width: 40%;
+  border-radius: 50%;
 }
 
 .card-content {
-
+  
   font-family: 'Montserrat', sans-serif;
 
   h3 {
