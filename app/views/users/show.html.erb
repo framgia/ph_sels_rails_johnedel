@@ -7,29 +7,27 @@
                 <div class="card-action light-blue darken-2 white-text">
                     <h6>User Information</h6>
                 </div>
-                <center>
-                <div class="card-image">
-                    <%= gravatar_for @user %>
+                <div style = "text-align:center;">
+                    <div class="card-image">
+                        <%= gravatar_for @user %>
+                    </div> 
+                    <div class="card-content">
+                        <h3><%= @user.name %></h3>
+                        <h4><%= @user.email %></h4>
+                    </div>  
                 </div> 
-                <div class="card-content">
-                    <h3><%= @user.name %></h3>
-                    <h4><%= @user.email %></h4>
-                </div>  
-                </center> 
             </div>
             <div class="card">
                 <div class="card-action light-blue darken-2 white-text">
                     <h6>User Status</h6>
                 </div>
-                <div class="card-content">
-                    <center> 
-                        <% total = @user.answers.count %>  
-                        <h4><%= "Words Learned: #{total}"%></h4>
-                        <div class = "status">
-                        <%= render 'shared/stats' %> <br> <br>
-                        <%= render 'follow_form' if logged_in? %>
-                        </div>
-                    </center>
+                <div class="card-content" style="text-align:center;">
+                    <% total = @user.answers.count %>  
+                    <h4><%= "Words Learned: #{total}"%></h4>
+                    <div class = "status">
+                    <%= render 'shared/stats' %> <br> <br>
+                    <%= render 'follow_form' if logged_in? %>
+                    </div>
                 </div>
             </div>
             <div class="card">
